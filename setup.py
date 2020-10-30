@@ -1,5 +1,9 @@
 import numpy as np
 
+
+def is_pos_def(x):
+    return np.all(np.linalg.eigvals(x) > 0)
+
 # Funcion que crea la matriz de H a utilizar en quadProg
 # Q es una matriz cuadrada de (NxN)
 # P es una matriz cuadrada de (NxN)
@@ -194,6 +198,4 @@ def ub(ub_xk, ub_uk, ub_duk, N):
     duk = np.tile(ub_duk, (N, 1))
     ub = np.concatenate((xk, uk, duk), axis=0)
     return ub
-
-
 
